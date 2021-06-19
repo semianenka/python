@@ -1,6 +1,6 @@
 # Python
 
-Note: Each task in separate file.
+Note: Use separate file for each task.
 
 # Task 1
 
@@ -12,9 +12,9 @@ Note: Each task in separate file.
 
 - Sort list by count of consonants in string (modify previous function)
 
-- Change by places first and last letters in each second string of list or array
+- Change by places first and last letters in each second string of list
 
-- Revert strings of list or array
+- Revert strings of list
 
 
 # Task 2 
@@ -56,3 +56,33 @@ def power(exp, base):
 ```
 
 - Create custom iterator based on class magic methods  ```__iter__ __next__```
+
+
+# Task 3
+
+- Try to use **checkout** to make branches and switch between them.
+
+- Try to use remote repo with commands: **push, pull, merge, merge --squash**
+
+- Find a way how you could use **stash** in your workflow.
+
+- Read https://womanonrails.com/replace-parent-branch and solve problem with a wrong parent branch. 
+
+Use **rebase --onto** to change the parent branch for Task2 to the master.
+
+Actual
+```
+                / Task2
+        / Task1
+master 
+```
+Expected
+```
+        / Task1
+master 
+        \ Task2
+```
+What happen if after **rebase** you push code into existing remote branch?
+
+
+- Use **cherry-pick** to solve problem with the wrong parent branch.
