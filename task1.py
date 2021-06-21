@@ -16,7 +16,7 @@ CONSONANTS = 'bcdfgjklmnpqstvxzhrw'
 
 def sort_by_length(list_):
     new_list = list_[:]
-    new_list.sort(key=lambda string: len(string))
+    new_list.sort(key=len)
     return new_list
 
 
