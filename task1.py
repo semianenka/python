@@ -1,57 +1,44 @@
-from copy import deepcopy
-
 list_of_strings = [
     'python',
     'java',
     'assembler',
     'c',
-    'ruby',
-    'go'
+    'rUby',
+    'Go',
+    '',
+    ' '
 ]
 
+VOWELS = 'aeiouy'
 
-def get_second_by_length(list_):
-    new_list = deepcopy(list_)
-    return sort_by_length(new_list)[1]
+CONSONANTS = 'bcdfgjklmnpqstvxzhrw'
 
 
 def sort_by_length(list_):
-    new_list = deepcopy(list_)
+    new_list = list_[:]
     new_list.sort(key=lambda string: len(string))
     return new_list
 
 
-def sort_by_vowels(list_):
-    def vowels_count(string):
-        vowels = ['a', 'e', 'i' 'o', 'u', 'y']
+def sort_by_letters(list_, by_vowels=True):
+    def letters_count(string, source):
         count = 0
-        for vowel in vowels:
+        string = string.lower()
+        for vowel in source:
             if vowel in string:
-                count += string.lower().count(vowel)
+                count += string.count(vowel)
         return count
 
-    new_list = deepcopy(list_)
-    new_list.sort(key=lambda string: vowels_count(string))
+    new_list = list_[:]
+    if by_vowels:
+        new_list.sort(key=lambda string: letters_count(string, VOWELS))
+    else:
+        new_list.sort(key=lambda string: letters_count(string, CONSONANTS))
     return new_list
 
 
-def sort_by_consonants(list_):
-    def consonants_count(string):
-        consonants = ['b', 'c', 'd', 'f', 'g', 'j', 'k', 'l', 'm', 'n',
-                      'p', 'q', 's', 't', 'v', 'x', 'z', 'h', 'r', 'w']
-        count = 0
-        for consonant in consonants:
-            if consonant in string:
-                count += string.lower().count(consonant)
-        return count
-
-    new_list = deepcopy(list_)
-    new_list.sort(key=lambda string: consonants_count(string))
-    return new_list
-
-
-def change_letters_place(list_):
-    new_list = deepcopy(list_)
+def swap_first_last_letter(list_):
+    new_list = list_[:]
     for i in range(len(new_list)):
         if i % 2:
             strings = list(new_list[i])
@@ -61,16 +48,16 @@ def change_letters_place(list_):
 
 
 def revert_list_of_strings(list_):
-    new_list = deepcopy(list_)
+    new_list = list_[:]
     for i in range(len(new_list)):
         new_list[i] = new_list[i][::-1]
     return new_list
 
 
-print('Find the second by length string in a list or array\n', get_second_by_length(list_of_strings))
-print('Sort list by string length:\n', sort_by_length(list_of_strings))
-print('Sort list by count of vowels in string\n', sort_by_vowels(list_of_strings))
-print('Sort list by count of consonants in string\n', sort_by_consonants(list_of_strings))
-print('Change by places first and last letters in each second string of list or array\n',
-      change_letters_place(list_of_strings))
-print('Revert strings of list or array\n', revert_list_of_strings(list_of_strings))
+print(f'Find the second by length string in a list or array:\n{sort_by_length(list_of_strings)[1]}')
+print(f'Sort list by string length:\n{sort_by_length(list_of_strings)}')
+print(f'Sort list by count of vowels in string:\n{sort_by_letters(list_of_strings)}')
+print(f'Sort list by count of consonants in string:\n{sort_by_letters(list_of_strings, False)}')
+print(f'Change by places first and last letters in each second string of list or array:\n'
+      f'{swap_first_last_letter(list_of_strings)}')
+print(f'Revert strings of list or array:\n{revert_list_of_strings(list_of_strings)}')
