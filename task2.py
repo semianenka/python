@@ -15,8 +15,7 @@ def mean():
         nonlocal sum_, k
         sum_ += number
         k += 1
-        mean_ = sum_/k
-        return mean_
+        return sum_/k
     return get_mean
 
 
