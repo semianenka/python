@@ -32,6 +32,7 @@ What happen if after **rebase** you push code into existing remote branch?
 
 Note: Use separate file for each task.
 
+# Task 3
 
 # Python
 
@@ -91,4 +92,17 @@ def power(exp, base):
 
 - Create custom iterator based on class magic methods  ```__iter__ __next__```
 
+# Task 3
 
+- Transpose a matrix 
+
+- Turn a matrix on 90 degrees clockwise
+
+- Multiply matrixes
+
+
+- Create a simple calculator with at least 4 functions: addition, subtraction, multiplying, division. Use console input/output.
+
+Use library argparse to work with CL arguments
+
+- Check Code smell by Robert Martin or https://refactoring.guru/ru/refactoring/smells 
