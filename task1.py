@@ -18,7 +18,7 @@ def sort_by_length(list_):
     return sorted(list_, key=len)
 
 
-def sort_by_letters(list_, letters_list):
+def sort_by_letters(list_, letters):
     def letters_count(string, source):
         count = 0
         string = string.lower()
@@ -27,7 +27,7 @@ def sort_by_letters(list_, letters_list):
                 count += string.count(vowel)
         return count
 
-    return sorted(list_, key=lambda string: letters_count(string, letters_list))
+    return sorted(list_, key=lambda string: letters_count(string, letters))
 
 
 def swap_first_last_letter(list_):
