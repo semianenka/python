@@ -30,12 +30,11 @@ What happen if after **rebase** you push code into existing remote branch?
 
 - Use **cherry-pick** to solve problem with the wrong parent branch.
 
-Note: Use separate file for each task.
 
-# Task 3
 
 # Python
 
+Use separate file/folder for each task.
 
 # Task 1
 
@@ -105,4 +104,29 @@ def power(exp, base):
 
 Use library argparse to work with CL arguments
 
-- Check Code smell by Robert Martin or https://refactoring.guru/ru/refactoring/smells 
+- Check "Code smell" by Robert Martin or https://refactoring.guru/ru/refactoring/smells 
+
+# Task 4
+
+You have two lists. Order is important.
+
+used = [1, 3, 2, 4, 3]
+dirty_input = [1, 3, 2, 2, 4, 3, 3, 3]
+
+Remove **used** values from **dirty_input**.
+
+- Create dictionary
+
+keys = ['C', 'Lua', 'Python']
+values = [1972, 1993, 1990]
+
+- Merge dictionaries
+
+langs1 = {'C': 1972, 'Lua': 1993, 'Python': 1990}
+langs2 = {'Lisp': 1958, 'Scheme': 1975}
+
+- Swap key and values in dictionary using dictionary comprehension.
+
+langs = {'C': 1972, 'Lua': 1993, 'Python': 1990}
+
+- Exceptions (coming soon)
