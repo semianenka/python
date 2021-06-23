@@ -9,7 +9,7 @@
 
 - Find a way how you could use **stash** in your workflow.
 
-- Read https://womanonrails.com/replace-parent-branch and solve problem with a wrong parent branch. 
+- [Read](https://womanonrails.com/replace-parent-branch) and solve problem with a wrong parent branch. 
 
 Use **rebase --onto** to change the parent branch for Task2 to the master.
 
@@ -50,6 +50,7 @@ Use separate file/folder for each task.
 
 - Revert strings of list
 
+- Read about [LEGB](https://realpython.com/python-scope-legb-rule/)
 
 # Task 2 
 
@@ -104,7 +105,7 @@ def power(exp, base):
 
 Use library argparse to work with CL arguments
 
-- Check "Code smell" by Robert Martin or https://refactoring.guru/ru/refactoring/smells 
+- Check "Code smell" by Robert Martin or [refactoring](https://refactoring.guru/ru/refactoring/smells)
 
 # Task 4
 
@@ -146,3 +147,7 @@ YAML structure should correspond to the original JSON.
 
 Add **exceptions** blocks to handle exceptional cases where it is necessary. 
 Store exceptions classes in separate file
+
+- [Big O](https://www.google.com/amp/s/tproger.ru/translations/data-structure-time-complexity-in-python/amp/)
+
+# Task 5 (coming soon)
