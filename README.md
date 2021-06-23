@@ -129,4 +129,20 @@ langs2 = {'Lisp': 1958, 'Scheme': 1975}
 
 langs = {'C': 1972, 'Lua': 1993, 'Python': 1990}
 
-- Exceptions (coming soon)
+- Exceptions
+
+Use [prize.json.zip](https://github.com/semianenka/python/files/6699192/prize.json.zip) 
+
+CSV
+Deserialize data from the file to python object and save it to CSV file.
+Every action should be done in a separate function.
+One person - one row for CSV.
+CSV file should have column headers in first line.
+
+YAML
+Load CSV file to a python object and save it to YAML file.
+Every action should be done in a separate function.
+YAML structure should correspond to the original JSON.
+
+Add **exceptions** blocks to handle exceptional cases where it is necessary. 
+Store exceptions classes in separate file
