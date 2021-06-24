@@ -150,9 +150,9 @@ Store exceptions classes in separate file
 
 - [Big O](https://www.google.com/amp/s/tproger.ru/translations/data-structure-time-complexity-in-python/amp/)
 
-# Task 5 (coming soon)
+# Task 5
 
-- Implement decorator function to add >>> to all every function call.
+- Implement decorator function to add >>> to every function call.
 
 - Implement decorator function to show executing time.
 
