@@ -2,6 +2,8 @@ import csv
 import json
 from pathlib import Path
 
+import exceptions as ex
+
 
 class Parser:
     def __init__(self, input_, output_):
@@ -21,9 +23,9 @@ class Parser:
         for key, value in fields.items():
             try:
                 if key not in value:
-                    raise CustomKeyNotFoundError('Key not found', key)
+                    raise ex.CustomKeyNotFoundError('Key not found', key)
                 data[key] = value[key]
-            except CustomKeyNotFoundError as e:
+            except ex.CustomKeyNotFoundError as e:
                 data[key] = None
                 print(f'An error {e} was occurred: '
                       f'Parser wrote None on {e.key} position because value is missing')
@@ -33,9 +35,16 @@ class Parser:
         self.output.writerow(data)
 
     def parse(self):
+        DATA_TO_PARSE = 'prizes'
+        ROW_TO_PARSE = 'laureates'
+
         try:
+            if DATA_TO_PARSE not in self.input:
+                raise ex.DataNotFoundError('Data not found', DATA_TO_PARSE)
             for row in self.input['prizes']:
                 try:
+                    if ROW_TO_PARSE not in row.keys():
+                        raise ex.RowNotFoundError('Row not found', ROW_TO_PARSE)
                     for laureate in row['laureates']:
                         fields = {
                             'id': laureate,
@@ -47,16 +56,9 @@ class Parser:
                         }
                         data = self.get_list_of_values(fields)
                         self.writeline(data)
-                except KeyError as e:
+                except ex.RowNotFoundError as e:
                     print(f'An error {e.__class__.__name__} was occurred: '
-                          f'Laureates were missing, row skipped')
-        except KeyError as e:
+                          f'{e.row} were missing, row skipped')
+        except ex.DataNotFoundError as e:
             print(f'An error {e.__class__.__name__} was occurred: '
-                  f'Critical failure')
-
-
-class CustomKeyNotFoundError(Exception):
-    def __init__(self, message, key):
-        self.message = message
-        self.key = key
-        super().__init__(self.message)
+                  f'Not found data {e.data}')
