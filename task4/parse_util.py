@@ -39,7 +39,7 @@ class Parser:
                     for laureate in row['laureates']:
                         fields = {
                             'id': laureate,
-                            'first_name': laureate,
+                            'firstname': laureate,
                             'surname': laureate,
                             'motivation': laureate,
                             'year': row,

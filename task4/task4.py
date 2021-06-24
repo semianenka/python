@@ -14,7 +14,10 @@ OUTPUT_FILE = 'data.csv'
 
 
 def difference(list_used, list_all):
-    return all(n is not None for n in [list_all.remove(i) for i in list_used if i in list_all]) or list_all
+    result = list_all[:]
+    for i in list_used:
+        result.remove(i)
+    return result
 
 
 def create_dict(keys_, values_):
@@ -22,8 +25,7 @@ def create_dict(keys_, values_):
 
 
 def dict_update(dict1, dict2):
-    new_dict = dict1.copy()
-    return new_dict.update(dict2) or new_dict
+    return {**dict1, **dict2}
 
 
 def swap_key_value(dict_):
