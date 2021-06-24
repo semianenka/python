@@ -151,3 +151,20 @@ Store exceptions classes in separate file
 - [Big O](https://www.google.com/amp/s/tproger.ru/translations/data-structure-time-complexity-in-python/amp/)
 
 # Task 5 (coming soon)
+
+- Implement decorator function to add >>> to all every function call.
+
+- Implement decorator function to show executing time.
+
+- Combine decorators to chain.
+
+- Implement decorator as class and store cache as an attribute. Store pairs {arg: result} as a dictionary in an attribute of the class object.
+
+```python
+def fibonacci_numbers(n):
+    assert n >= 0
+    if n < 2:
+        return n
+    else:
+        return fibonacci_numbers(n-1) + fibonacci_numbers(n-2)
+```
