@@ -3,18 +3,16 @@ import time
 
 def output(func):
     def wrapper(*args, **kwargs):
-        print('>>>', end=' ')
-        result = func(*args, **kwargs)
-        return result
+        print('>>> ', end='')
+        return func(*args, **kwargs)
     return wrapper
 
 
 def timed(func):
     def wrapper(*args, **kwargs):
         t1 = time.time()
-        result = func(*args, **kwargs)
         print(f'Function {func.__name__} was finished in {time.time() - t1}s')
-        return result
+        return func(*args, **kwargs)
     return wrapper
 
 
@@ -24,9 +22,10 @@ class StoreResults:
         self.results = {}
 
     def __call__(self, *args, **kwargs):
+        if args[0] in self.results:
+            return self.results[args[0]]
         result = self.func(*args, **kwargs)
-        if args[0] not in self.results:
-            self.results[args[0]] = result
+        self.results[args[0]] = result
         return result
 
     def cache(self):
@@ -35,7 +34,7 @@ class StoreResults:
 
 @timed
 @output
-def some_func(a=0, b=1):
+def some_func(a=2, b=2):
     return a + b
 
 
@@ -52,4 +51,6 @@ print(some_func())
 print(fibonacci_numbers(16))
 print(fibonacci_numbers(32))
 print(fibonacci_numbers(4))
+print(fibonacci_numbers(31))
+print(fibonacci_numbers(32))
 print(fibonacci_numbers.cache())
