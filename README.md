@@ -168,3 +168,10 @@ def fibonacci_numbers(n):
     else:
         return fibonacci_numbers(n-1) + fibonacci_numbers(n-2)
 ```
+
+- Try to use [pdb](https://docs.python.org/3/library/pdb.html) module to debug. Sometimes it faster than PyCharm debugger.
+```python
+import pdb
+pdb.set_trace()
+```
+
