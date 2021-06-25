@@ -8,7 +8,7 @@ import yaml
 import exceptions as ex
 
 
-class Parser:
+class PrizesParser:
     def __init__(self, input_):
         if not Path(input_).exists():
             raise FileNotFoundError()
