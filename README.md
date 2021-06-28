@@ -206,3 +206,7 @@ When the last file is read, it stops.
 User of the generator can also throw an exception into the generator (SkipThisFile) which signals the generator to skip the rest of the current file, and just yield a dummy value to be skipped.
 
 Note: Make sure that implemented function is correct. I don't check this legacy code :-).
+
+# Task 7
+
+- Write you own examples for SOLID
