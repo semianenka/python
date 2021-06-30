@@ -209,4 +209,24 @@ Note: Make sure that implemented function is correct. I don't check this legacy 
 
 # Task 7
 
-- Write you own examples for SOLID
+- SOLID
+- Write you own examples. Try to show in code what every rule mean.
+
+# Task 8
+
+Design object oriented model for **Airline**.
+
+Use: classes, inheritance, interfaces, polymorphism, encapsulation.
+Each class, method, and variable must have a meaningful name and informative composition.
+You need to think carefully about which classes are needed to solve the problem.
+Inheritance should only be applied when it makes sense.
+Each class should have the fields and methods you deem necessary.
+
+Working with the console should be minimal (only the necessary data for input, output only what is requested in the problem statement).
+The program must create objects of various classes in the selected subject area, combine them into a set of objects (use collections).
+
+- Determine the aircraft hierarchy.
+- Create an airline.
+- Calculate the total capacity and lifting capacity.
+- Sort the company's aircraft by range.
+- Find an aircraft in the company that matches the specified range of parameters.
