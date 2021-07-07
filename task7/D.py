@@ -46,7 +46,7 @@ class PayPalPayment(Payment):
             pass
 
 
-class Shop:
+class PaymentManager:
     def __init__(self, name):
         self.name = name
 
