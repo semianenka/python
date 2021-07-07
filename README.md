@@ -244,3 +244,102 @@ Implement a simple class with 3 methods: 1st raising exception, 2nd returning No
 - Use warning level to log a warning if method call returned None
 
 - Implement logging to command line, file and sqllite db
+
+# Task 10
+
+[async/await](https://realpython.com/async-io-python/)
+
+Compare two examples
+
+```python
+import time
+
+def count():
+    print("One")
+    time.sleep(1)
+    print("Two")
+
+def main():
+    for _ in range(3):
+        count()
+
+if __name__ == "__main__":
+    s = time.perf_counter()
+    main()
+    elapsed = time.perf_counter() - s
+    print(f"{__file__} executed in {elapsed:0.2f} seconds.")
+```
+
+```python
+import asyncio
+
+async def count():
+    print("One")
+    await asyncio.sleep(1)
+    print("Two")
+
+async def main():
+    await asyncio.gather(count(), count(), count())
+
+if __name__ == "__main__":
+    import time
+    s = time.perf_counter()
+    asyncio.run(main())
+    elapsed = time.perf_counter() - s
+    print(f"{__file__} executed in {elapsed:0.2f} seconds.")
+```
+
+AmazonHub
+
+Simulate process of items searching.
+
+Use async/await functions.
+
+- Use class AmazonHub
+
+- Implement async func process and private func _searcher
+
+- Show time of execution
+
+``` python
+
+class AmazonHub:
+    def __init__(self):
+        self.orders = {}
+        self._items = []
+
+    @property
+    def items(self):
+        return self._items
+
+    def add(self, orders):
+        self.orders = {**self.orders, **orders}
+
+    def run(self):
+        pass
+
+    async def _searcher(self, order, t):
+        pass
+
+    async def process(self):
+        pass
+
+```
+
+Expected Output
+
+New order: Star Wars IV
+
+New order: Crime and Punishment by Fyodor Dostoevsky
+
+New order: Harry Potter (all books)
+
+Harry Potter (all books) - Done
+
+Star Wars IV - Done
+
+Crime and Punishment by Fyodor Dostoevsky - Done
+
+Items: ['Harry Potter (all books)', 'Star Wars IV', 'Crime and Punishment by Fyodor Dostoevsky']
+
+[task10.py] executed in 4.00 seconds.
