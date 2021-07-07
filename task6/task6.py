@@ -19,7 +19,7 @@ def display_files(files_):
     source = read_lines(files_)
     try:
         while True:
-            print(next(source).rstrip(), end='')
+            print(next(source).strip(), end='')
             if input().lower() == 'n':
                 print('\nMove to next file')
                 source.throw(SkipThisFile)
@@ -28,7 +28,6 @@ def display_files(files_):
 
 
 if __name__ == '__main__':
-    files = [i for i in sys.argv[1:]]
     print('  ______ _____ _      ______   _____  ______          _____  ______ _____')
     print('|  ____|_   _| |    |  ____| |  __ \|  ____|   /\   |  __ \|  ____|  __ \ ')
     print('| |__    | | | |    | |__    | |__) | |__     /  \  | |  | | |__  | |__) |')
@@ -41,4 +40,4 @@ if __name__ == '__main__':
     print('- Press n and Enter to skip the rest of the current file and start reading the next file')
     print('- Press anything else and Enter to display the next line\n')
 
-    display_files(files)
+    display_files([i for i in sys.argv[1:]])
