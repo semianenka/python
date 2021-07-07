@@ -15,13 +15,12 @@ def read_lines(files_):
             pass
 
 
-def display_files(*files_):
-    source = read_lines(*files_)
+def display_files(files_):
+    source = read_lines(files_)
     try:
         while True:
             print(next(source).rstrip(), end='')
-            input_ = input()
-            if input_.lower() == 'n':
+            if input().lower() == 'n':
                 print('\nMove to next file')
                 source.throw(SkipThisFile)
     except StopIteration:
