@@ -1,9 +1,4 @@
 # Dependency inversion principle
-class Item:
-    def __init__(self, name):
-        self.name = name
-
-
 class Payment:
     def __init__(self, name):
         self.name = name
@@ -28,12 +23,32 @@ class CryptoPayment(Payment):
     def __init__(self, name):
         super().__init__(name)
 
+    # and similar funcs
+    def get_success_url(self):
+        pass
+
 
 class CardPayment(Payment):
     def __init__(self, name):
         super().__init__(name)
 
+        # and similar funcs
+        def get_success_url(self):
+            pass
+
 
 class PayPalPayment(Payment):
     def __init__(self, name):
         super().__init__(name)
+
+        # and similar funcs
+        def get_success_url(self):
+            pass
+
+
+class Shop:
+    def __init__(self, name):
+        self.name = name
+
+    def get_success_url(self, payment):
+        return payment.get_success_url()

@@ -5,7 +5,7 @@ class User:
         self.username = username
 
 
-class UserDB:
+class UserTableManager:
     @classmethod
     def save(cls, user):
         """Save user entity to db"""

@@ -17,3 +17,10 @@ class Game:
 
     def update(self):
         self.ball.move(*self.speed)
+
+
+ball = Ball(0, 0, 5)
+game = Game(ball, (5, 5))
+while True:
+    game.update()
+    # not game.ball.move(5, 5)
