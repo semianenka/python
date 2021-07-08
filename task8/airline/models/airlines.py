@@ -32,8 +32,9 @@ class Airline(collections.deque):
         return sorted(self, key=lambda aircraft: aircraft.max_range)
 
     def get_by_id(self, id):
-        if id <= len(self) - 1:
-            return self[id - 1]
+        for i in self:
+            if i.id == id:
+                return i
         raise exceptions.AircraftNotFoundError
 
     def find_aircrafts(self, params=None):
