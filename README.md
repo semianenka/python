@@ -318,7 +318,7 @@ class AmazonHub:
     def run(self):
         pass
 
-    async def _searcher(self, order, t):
+    async def _search(self, order, t):
         pass
 
     async def process(self):
