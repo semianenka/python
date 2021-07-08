@@ -10,6 +10,11 @@ class Ball:
         self.y += dy
 
 
+class HugeUltraSuperRedBall(Ball):
+    def __init__(self, x, y, r):
+        super().__init__(x, y, r)
+
+
 class Game:
     def __init__(self, ball, speed):
         self.ball = ball
@@ -20,7 +25,9 @@ class Game:
 
 
 ball = Ball(0, 0, 5)
+huge_ultra_super_ball = HugeUltraSuperRedBall(0, 0, 1000)
 game = Game(ball, (5, 5))
+# nothing will change
+# game = Game(huge_ultra_super_ball, (5, 5))
 while True:
     game.update()
-    # not game.ball.move(5, 5)
