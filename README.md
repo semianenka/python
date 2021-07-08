@@ -301,7 +301,10 @@ Use async/await functions.
 
 - Show time of execution
 
+
 ``` python
+
+orders = {'Crime and Punishment by Fyodor Dostoevsky': 4, 'Harry Potter (all books)': 1, 'Star Wars IV': 2}
 
 class AmazonHub:
     def __init__(self):
@@ -318,7 +321,7 @@ class AmazonHub:
     def run(self):
         pass
 
-    async def _search(self, order, t):
+    async def _search(self, order, minutes):
         pass
 
     async def process(self):
