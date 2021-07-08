@@ -1,37 +1,40 @@
 import collections
 
-from airline.exceptions import ObjectIsNotAircraftError
+from airline import exceptions
 
 
 class Airline(collections.deque):
-    def __init__(self, name, supported_types, initial_aircrafts):
+    def __init__(self, name, initial_aircrafts):
         self.name = name
-        self.types = self._init_types(supported_types)
+        self.types = initial_aircrafts.keys()
         super().__init__(self._initial_values(initial_aircrafts))
 
-    def _initial_values(self, dict_):
+    def _initial_values(self, initial_aircrafts):
         aircrafts = []
-        for key, value in dict_.items():
-            if key in self.types.keys():
-                for id_ in range(1, value + 1):
-                    aircrafts.append(self.types[key](id_=id_, name=f'Default {key}', location=self.name))
+        for class_obj, count in initial_aircrafts.items():
+            for _ in range(count):
+                aircrafts.append(
+                    class_obj(id=len(aircrafts) + 1, name=f'Default {class_obj.__name__}', location=self.name))
         return aircrafts
-
-    def _init_types(self, supported_types):
-        return {i.__name__.lower().replace('aircraft', ''): i for i in supported_types}
 
     def append(self, *args):
         for aircraft in args:
             if isinstance(aircraft, tuple(self.types)):
+                aircraft.id = len(self) + 1
                 self.append(aircraft)
             else:
-                raise ObjectIsNotAircraftError
+                raise exceptions.ObjectIsNotAircraftError
 
     def total_capacity(self):
         return sum(aircraft.capacity for aircraft in self)
 
     def sort_by_range(self):
         return sorted(self, key=lambda aircraft: aircraft.max_range)
+
+    def get_by_id(self, id):
+        if id <= len(self) - 1:
+            return self[id - 1]
+        raise exceptions.AircraftNotFoundError
 
     def find_aircrafts(self, params=None):
         def _filter_by_params(el):

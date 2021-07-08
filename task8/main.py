@@ -1,18 +1,13 @@
 import os
-import random
 
-from airline.models.aircrafts import PassengerAircraft
-from airline.models.aircrafts import MilitaryAircraft
-from airline.models.aircrafts import DroneAircraft
+from airline.models import aircrafts
 from airline.models.airlines import Airline
 
-AIRCRAFTS_INITIAL = {
-    'military': 2,
-    'passenger': 5,
-    'drone': 3,
+initial_aircrafts = {
+    aircrafts.MilitaryAircraft: 2,
+    aircrafts.PassengerAircraft: 5,
+    aircrafts.DroneAircraft: 3,
 }
-
-AIRCRAFT_TYPES = [MilitaryAircraft, PassengerAircraft, DroneAircraft]
 
 params = {
     'name': 'default',
@@ -34,13 +29,9 @@ if __name__ == '__main__':
     print('  / /\ \   | | |  _  /| |      | | | . ` |  __|  ')
     print(' / ____ \ _| |_| | \ \| |____ _| |_| |\  | |____ ')
     print('/_/    \_\_____|_|  \_\______|_____|_| \_|______|')
-    airline = Airline(input('Enter airline name: '), AIRCRAFT_TYPES, AIRCRAFTS_INITIAL)
+    airline = Airline(input('Enter airline name: '), initial_aircrafts)
     print(f'Airline name: "{airline.name}"')
-    for aircraft in airline:
-        aircraft.capacity = random.randint(100, 200)
-        aircraft.max_range = random.randint(10_000, 20_000)
     print(f'Airline aircrafts: {airline}\n')
     print(f'Airline total capacity: {airline.total_capacity()}\n')
     print(f'Sorted aircrafts by range: {airline.sort_by_range()}\n')
     print(f'Aircrafts by params: {airline.find_aircrafts(params)}')
-
