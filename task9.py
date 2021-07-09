@@ -59,7 +59,7 @@ class LoggerMetaclass(type):
 
         newattrs = {}
         for key, value in attrs.items():
-            if '__' not in key:
+            if callable(value):
                 newattrs[key] = log(value)
             else:
                 newattrs[key] = value
