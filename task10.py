@@ -22,7 +22,6 @@ class AmazonHub:
         print(f'{order} - Done')
 
     async def process(self):
-        if self.orders:
             tasks = []
             for order, t in self.orders.items():
                 print(f'New order: {order}')
